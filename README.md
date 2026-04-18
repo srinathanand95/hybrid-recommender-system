@@ -42,4 +42,4 @@ python3 recommender.py
 
 ## Live Demo
 
-https://your-app-name.streamlit.app
+https://hybrid-recommender-system-us3dqb3qqk8icz63ecykwh.streamlit.app/
