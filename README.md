@@ -39,3 +39,7 @@ Output:
 ```bash
 pip install -r requirements.txt
 python3 recommender.py
+
+## Live Demo
+
+https://your-app-name.streamlit.app
