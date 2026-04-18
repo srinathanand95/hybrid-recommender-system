@@ -1,16 +1,19 @@
+import os
 import pandas as pd
 import numpy as np
 from rapidfuzz import process, fuzz
 from sklearn.metrics.pairwise import cosine_similarity
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 ratings = pd.read_csv(
-    "data/ratings.csv",
+    os.path.join(BASE_DIR, "data/ratings.csv"),
     sep="\t",
     names=["user_id", "movie_id", "rating", "timestamp"]
 )
 
 movies = pd.read_csv(
-    "data/movies.csv",
+    os.path.join(BASE_DIR, "data/movies.csv"),
     sep="|",
     encoding="latin-1",
     names=[
