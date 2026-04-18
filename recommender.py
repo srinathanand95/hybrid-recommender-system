@@ -45,10 +45,7 @@ def recommend(movie_name, top_n=10):
     best_match = find_best_match(movie_name)
 
     if not best_match:
-        print("\nNo close match found")
         return None
-
-    print(f"\nUsing: {best_match}")
 
     movie_ratings = movie_matrix[best_match]
     collab_sim = movie_matrix.corrwith(movie_ratings).dropna()
@@ -94,17 +91,16 @@ def recommend(movie_name, top_n=10):
 
     return recommendations.head(top_n)
 
-while True:
-    movie_name = input("\nEnter a movie (or 'exit'): ")
+if __name__ == "__main__":
+    while True:
+        movie_name = input("\nEnter a movie (or 'exit'): ")
 
-    if movie_name.lower() == "exit":
-        break
+        if movie_name.lower() == "exit":
+            break
 
-    recs = recommend(movie_name)
+        recs = recommend(movie_name)
 
-    if recs is not None:
-        print("\nTop recommendations:\n")
-        for title, row in recs.iterrows():
-            print(
-                f"{title} | score={row['score']:.3f} | collab={row['collab_score']:.3f} | content={row['content_score']:.3f} | ratings={int(row['num_ratings'])}"
-            )
+        if recs is not None:
+            print("\nTop recommendations:\n")
+            for title, row in recs.iterrows():
+                print(title)
